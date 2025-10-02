@@ -1,5 +1,4 @@
 import { Product } from "@/lib/data";
-import AddToCartButton from "./AddToCartButton";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface ProductCardProps {

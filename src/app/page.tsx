@@ -24,8 +24,9 @@ export default function ProductsPage() {
       if (!res.ok) throw new Error('Falha ao carregar produtos.');
       const data = await res.json();
       setProducts(data)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (error: any) {
+      const message = error instanceof Error ? error.message : 'Erro Inesperado'
+      setError(message)
     } finally {
       setIsLoading(false)
     }
@@ -47,8 +48,9 @@ export default function ProductsPage() {
       await fetchProducts()
       setEditingProduct(null);
       setIsFormVisible(false)
-    } catch (error: any) {
-      setError(error.message)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Erro Inesperado'
+      setError(message)
     }
   }
 
@@ -59,8 +61,9 @@ export default function ProductsPage() {
       const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Falha ao excluir produto.');
       setProducts(products.filter(p => p.id !== id));
-    } catch (error: any) {
-      setError(error.message)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Erro Inesperado'
+      setError(message)
     }
   }
 
