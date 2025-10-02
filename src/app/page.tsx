@@ -24,7 +24,7 @@ export default function ProductsPage() {
       if (!res.ok) throw new Error('Falha ao carregar produtos.');
       const data = await res.json();
       setProducts(data)
-    } catch (error: any) {
+    } catch (error) {
       const message = error instanceof Error ? error.message : 'Erro Inesperado'
       setError(message)
     } finally {
